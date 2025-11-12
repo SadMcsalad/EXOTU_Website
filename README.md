@@ -1,6 +1,34 @@
 # EXOTU Website
 
-A React + Vite + TypeScript + Tailwind site. Includes animated hero, tiered sponsors page, projects, team, and more.
+A modern, responsive website for EXOTU (Exoskeleton Technology at University) built with React, Vite, TypeScript, and Tailwind CSS. The site showcases the team's projects, members, sponsors, and mission.
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server (http://localhost:5173)
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the [`documentation/`](./documentation/) folder:
+
+- **[Getting Started](./documentation/getting-started.md)** - Setup and installation guide
+- **[Project Structure](./documentation/project-structure.md)** - Understanding the codebase
+- **[Adding Projects](./documentation/adding-projects.md)** - How to add or modify projects
+- **[Modifying Content](./documentation/modifying-content.md)** - Updating team, sponsors, mission, etc.
+- **[Development Workflow](./documentation/development-workflow.md)** - Git workflow, commits, and CI/CD
+- **[Deployment](./documentation/deployment.md)** - Deploying to Vercel and production
+- **[Configuration](./documentation/configuration.md)** - Environment variables and settings
 
 ## Prerequisites
 - Node.js 18+ (recommended LTS)
@@ -144,27 +172,58 @@ You can also trigger a release manually via GitHub Actions → Release → Run w
 - Verifies build output exists and is not empty
 - Catches silent build failures early
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 project/
   src/
-    components/      # UI sections like Hero, Navigation, Footer
-    pages/           # High-level pages (About, Sponsors, etc.)
-    main.tsx         # App bootstrap
-    App.tsx          # Top-level app with simple page switching
-  index.html         # Vite HTML entry
-  tailwind.config.js # Tailwind setup
-  vite.config.ts     # Vite config
+    components/      # Reusable UI components (Hero, Navigation, Footer, etc.)
+    pages/           # Page components (About, Projects, Team, etc.)
+    data/            # Content data files (projects, team, sponsors, etc.)
+    main.tsx         # Application entry point
+    App.tsx          # Main app component with routing
+    index.css        # Global styles
+  public/
+    images/          # Static images organized by page
+  documentation/     # Comprehensive documentation guides
+  .github/workflows/ # CI/CD workflows
 ```
+
+For detailed information about the project structure, see [Project Structure Documentation](./documentation/project-structure.md).
 
 ## Tailwind
 Tailwind is already configured. Global styles are in `src/index.css`.
 
-## Troubleshooting
-- If you see a blank page after deployment, open the browser console for errors.
-- Verify the build output exists (`dist/`) and that Vercel is serving it.
-- Ensure Node 18+ in your environment.
+## 🛠️ Common Tasks
+
+### Adding a New Project
+See [Adding Projects Guide](./documentation/adding-projects.md) for step-by-step instructions.
+
+### Updating Team Members
+Edit `src/data/team.ts` - see [Modifying Content Guide](./documentation/modifying-content.md).
+
+### Adding Sponsors
+Edit `src/data/sponsors.ts` - see [Modifying Content Guide](./documentation/modifying-content.md).
+
+### Changing Mission Statement
+Edit `src/data/mission.ts` - see [Modifying Content Guide](./documentation/modifying-content.md).
+
+## 🐛 Troubleshooting
+
+- **Blank page after deployment**: Check browser console for errors. Verify `dist/` folder exists and contains files.
+- **Build fails**: Ensure Node.js 18+ is installed. Run `npm install` to ensure dependencies are up to date.
+- **Type errors**: Run `npm run typecheck` to see detailed TypeScript errors.
+- **Lint errors**: Run `npm run lint` to check code style issues.
+
+## 📖 Additional Resources
+
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://react.dev/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [TypeScript Documentation](https://www.typescriptlang.org/)
 
 ---
-Maintained by the EXOTU team.
+
+**Maintained by the EXOTU team.**
+
+For questions or contributions, please refer to the [Development Workflow Guide](./documentation/development-workflow.md).
