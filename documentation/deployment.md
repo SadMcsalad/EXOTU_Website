@@ -40,6 +40,17 @@ The EXOTU website is a static Single Page Application (SPA) built with Vite. The
 - **Preview Deployments**: PRs get preview URLs automatically
 - **Status**: Deployment status shown in GitHub PRs
 
+### ⚠️ Important: Waiting for CI/CD
+
+**By default, Vercel does NOT wait for GitHub Actions to pass** before deploying. This means broken code could be deployed if the pipeline fails.
+
+**Recommended**: Configure Vercel to wait for status checks:
+1. Go to Vercel Dashboard → Project Settings → **Deployment Protection** (or **Build and Deployment**)
+2. Enable **"Required Status Checks"** or **"Wait for Build Checks"**
+3. Add required check: `Main Pipeline / all-checks`
+
+See [Vercel GitHub Integration Guide](./vercel-github-integration.md) for detailed instructions.
+
 ## Manual Deployment
 
 ### Using Vercel CLI
