@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
+import GridDistortion from "./GridHero";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -6,7 +7,7 @@ export default function Hero() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const context = ctx as CanvasRenderingContext2D;
 
@@ -28,12 +29,15 @@ export default function Hero() {
       pos: Point;
       direction: Point;
       activePos: Point;
-      color: CanvasGradient | string = '#000';
+      color: CanvasGradient | string = "#000";
 
       constructor() {
         this.r = 100 + Math.random() * 100;
         this.pos = { x: Math.random() * winW, y: Math.random() * winH };
-        this.direction = { x: -1 + Math.random() * 2, y: -1 + Math.random() * 2 };
+        this.direction = {
+          x: -1 + Math.random() * 2,
+          y: -1 + Math.random() * 2,
+        };
         this.activePos = { x: this.pos.x, y: this.pos.y };
       }
 
@@ -52,12 +56,15 @@ export default function Hero() {
         this.activePos.x += this.direction.x + dx * 0.0005;
         this.activePos.y += this.direction.y + dy * 0.0005;
 
-        if (this.activePos.x < 0 || this.activePos.x > winW) this.direction.x *= -1;
-        if (this.activePos.y < 0 || this.activePos.y > winH) this.direction.y *= -1;
+        if (this.activePos.x < 0 || this.activePos.x > winW)
+          this.direction.x *= -1;
+        if (this.activePos.y < 0 || this.activePos.y > winH)
+          this.direction.y *= -1;
       }
     }
 
-    const hsl = (h: number, s: number, l: number, a = 1) => `hsla(${h}, ${s}%, ${l}%, ${a})`;
+    const hsl = (h: number, s: number, l: number, a = 1) =>
+      `hsla(${h}, ${s}%, ${l}%, ${a})`;
 
     const gradientBg = (x: number, y: number, r: number) => {
       // Map horizontal position to hue from red (10deg) to green (140deg)
@@ -67,14 +74,14 @@ export default function Hero() {
       // Bright colored core fading to darker same hue, then to black
       bg.addColorStop(0.0, hsl(hue, 100, 60, 1));
       bg.addColorStop(0.55, hsl(hue, 100, 45, 0.85));
-      bg.addColorStop(0.95, 'rgba(0,0,0,0.95)');
+      bg.addColorStop(0.95, "rgba(0,0,0,0.95)");
       return bg;
     };
 
     const init = () => {
       winW = canvas.width = window.innerWidth;
       winH = canvas.height = window.innerHeight;
-      context.globalCompositeOperation = 'lighten';
+      context.globalCompositeOperation = "lighten";
       Balls = [];
       for (let i = 0; i < maxBalls; i++) Balls.push(new Ball());
     };
@@ -97,11 +104,17 @@ export default function Hero() {
 
     const handleResize = () => init();
 
-    const events: Array<keyof WindowEventMap> = ['mousemove', 'touchstart', 'touchmove'];
+    const events: Array<keyof WindowEventMap> = [
+      "mousemove",
+      "touchstart",
+      "touchmove",
+    ];
     events.forEach((name) => {
-      window.addEventListener(name, getMouse as EventListener, { passive: true });
+      window.addEventListener(name, getMouse as EventListener, {
+        passive: true,
+      });
     });
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     init();
     animate();
@@ -111,13 +124,25 @@ export default function Hero() {
       events.forEach((name) => {
         window.removeEventListener(name, getMouse as EventListener);
       });
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (
     <section className="relative h-[100svh] min-h-screen overflow-hidden bg-black">
       {/* Animated canvas background */}
-      <canvas ref={canvasRef} id="mitosys" className="absolute inset-0 w-full h-full" />
+      {/* <canvas
+        ref={canvasRef}
+        id="mitosys"
+        className="absolute inset-0 w-full h-full"
+      /> */}
+      <GridDistortion
+        imageSrc="/public/RobotArm2.jpg"
+        grid={10}
+        mouse={0.1}
+        strength={0.15}
+        relaxation={0.9}
+        className="absolute inset-0 w-full h-full"
+      />
       {/* Overlay gradient to boost contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
 
