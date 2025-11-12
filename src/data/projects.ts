@@ -1,5 +1,4 @@
-import { Shield, Cpu, Zap, Heart, Brain, Wrench } from 'lucide-react';
-import { LucideIcon } from 'lucide-react';
+import { Shield, LucideIcon } from 'lucide-react';
 
 export interface Project {
   // Core info
@@ -47,7 +46,7 @@ export const projects: Project[] = [
   //   progress: 50,
   //   status: 'Status',
   //   image: 'image-url',
-  //   icon: Cpu, // Choose from: Shield, Cpu, Zap, Heart, Brain, Wrench
+  //   icon: Shield, // Import additional icons from 'lucide-react' if needed
   //   specs: ['Spec 1', 'Spec 2'],
   //   team: 'Team disciplines',
   // },

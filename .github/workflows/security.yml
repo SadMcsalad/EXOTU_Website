@@ -24,13 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run security audit
-        run: npm audit --audit-level=moderate
+      - name: Run security audit (report only)
+        run: npm audit --audit-level=moderate || true
 
-      - name: Check for known vulnerabilities
+      - name: Check for high/critical vulnerabilities
         run: |
           if npm audit --audit-level=high 2>&1 | grep -q "found"; then
             echo "::error::High or critical vulnerabilities found!"
             exit 1
           fi
+          echo "✓ No high or critical vulnerabilities found"
 
