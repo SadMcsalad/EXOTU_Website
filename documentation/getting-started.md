@@ -29,7 +29,26 @@ Before you begin, ensure you have the following installed:
    ```
    This will install all required packages listed in `package.json`.
 
-3. **Verify installation**:
+3. **Set up environment variables**:
+   Create a `.env.local` file in the project root:
+   ```bash
+   # Copy the example file
+   cp .env.example .env.local
+   ```
+   
+   Then edit `.env.local` and add your values:
+   ```env
+   VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key_here
+   VITE_SITE_URL=https://exotu-website.vercel.app
+   ```
+   
+   **Required variables**:
+   - `VITE_WEB3FORMS_ACCESS_KEY` - Get from [web3forms.com](https://web3forms.com) (required for Join page form)
+   - `VITE_SITE_URL` - Your site URL (defaults to `https://exotu-website.vercel.app` if not set)
+   
+   See [Configuration Guide](./configuration.md) for more details.
+
+4. **Verify installation**:
    ```bash
    npm run typecheck
    ```

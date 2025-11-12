@@ -3,7 +3,17 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    // Plugin to replace %VITE_SITE_URL% in HTML with default if not set
+    {
+      name: 'html-env-replace',
+      transformIndexHtml(html) {
+        const siteUrl = process.env.VITE_SITE_URL || 'https://exotu-website.vercel.app';
+        return html.replace(/%VITE_SITE_URL%/g, siteUrl);
+      },
+    },
+  ],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },

@@ -1,6 +1,10 @@
 import { executiveLeadership, departments } from '../data/team';
 
-export default function TeamPage() {
+interface TeamPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export default function TeamPage({ onNavigate }: TeamPageProps) {
 
   return (
     <div className="pt-16 min-h-screen bg-black">
@@ -80,7 +84,10 @@ export default function TeamPage() {
             We're always looking for talented, passionate individuals to join our mission.
             Whether you're a student, researcher, or industry professional, there's a place for you at EXOTU.
           </p>
-          <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all">
+          <button 
+            onClick={() => onNavigate('join')}
+            className="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all"
+          >
             Apply Now
           </button>
         </div>

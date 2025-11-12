@@ -42,9 +42,23 @@ Comprehensive documentation is available in the [`documentation/`](./documentati
 # Install dependencies
 npm install
 
+# Set up environment variables (required)
+# Copy .env.example to .env.local and fill in your values
+cp .env.example .env.local
+# Then edit .env.local with your actual values
+
 # Start the dev server (http://localhost:5173)
 npm run dev
 ```
+
+### Environment Variables
+
+Create a `.env.local` file in the project root with the following variables:
+
+- `VITE_WEB3FORMS_ACCESS_KEY` - Get from [web3forms.com](https://web3forms.com) for form submissions
+- `VITE_SITE_URL` - Your site URL (default: `https://exotu-website.vercel.app`)
+
+See `.env.example` for a template, or check [Configuration Documentation](./documentation/configuration.md) for details.
 
 ## Type Checking and Linting
 

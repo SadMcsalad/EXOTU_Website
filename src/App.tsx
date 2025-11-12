@@ -38,7 +38,7 @@ function App() {
       case 'projects':
         return <ProjectsPage />;
       case 'team':
-        return <TeamPage />;
+        return <TeamPage onNavigate={setCurrentPage} />;
       case 'join':
         return <JoinPage />;
       case 'sponsors':

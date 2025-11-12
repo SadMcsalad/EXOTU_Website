@@ -4,7 +4,13 @@ This guide covers all configuration options, environment variables, and settings
 
 ## Environment Variables
 
-### Web3Forms Access Key
+Environment variables are stored in `.env.local` (for local development) or set in Vercel (for production).
+
+**Important**: `.env.local` is gitignored and should never be committed. Use `.env.example` as a template.
+
+### Required Variables
+
+#### Web3Forms Access Key
 
 **Variable**: `VITE_WEB3FORMS_ACCESS_KEY`
 
@@ -12,13 +18,48 @@ This guide covers all configuration options, environment variables, and settings
 
 **Setup**:
 1. Get access key from [web3forms.com](https://web3forms.com)
-2. For local development: Create `.env.local`:
-   ```
+2. For local development: Add to `.env.local`:
+   ```env
    VITE_WEB3FORMS_ACCESS_KEY=your_access_key_here
    ```
 3. For production: Add in Vercel environment variables
 
 **Note**: Variables must start with `VITE_` to be accessible in the React app.
+
+#### Site URL
+
+**Variable**: `VITE_SITE_URL`
+
+**Purpose**: The base URL of your website. Used for SEO meta tags, Open Graph images, and structured data.
+
+**Setup**:
+1. For local development: Add to `.env.local`:
+   ```env
+   VITE_SITE_URL=http://localhost:5173
+   ```
+2. For production: Add in Vercel environment variables:
+   ```env
+   VITE_SITE_URL=https://your-domain.com
+   ```
+
+**Default**: If not set, defaults to `https://exotu-website.vercel.app`
+
+**Note**: This variable is used in HTML meta tags and will be replaced at build time. See [Updating Site URL](./updating-site-url.md) for more information.
+
+### Setting Up Environment Variables
+
+1. **Copy the example file**:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. **Edit `.env.local`** with your actual values
+
+3. **Restart your dev server** after making changes
+
+### .env.example
+
+The project includes a `.env.example` file that shows all required environment variables. This file is committed to the repository and serves as a template for new developers.
 
 ## Application Configuration
 
