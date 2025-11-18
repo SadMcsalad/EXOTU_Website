@@ -17,7 +17,7 @@ export default function SponsorsPage() {
     } as const;
     const hoverScale = tier === 'platinum' ? 'hover:-translate-y-2 hover:scale-[1.02]' : tier === 'gold' ? 'hover:-translate-y-1.5 hover:scale-[1.01]' : tier === 'silver' ? 'hover:-translate-y-1.5 hover:scale-[1.01]' : 'hover:-translate-y-1';
     const ringColor = tier === 'platinum' ? 'group-hover:ring-cyan-300/30' : tier === 'gold' ? 'group-hover:ring-yellow-300/20' : tier === 'silver' ? 'group-hover:ring-gray-300/15' : 'group-hover:ring-orange-200/10';
-    const textSize = tier === 'platinum' ? 'text-3xl md:text-4xl lg:text-5xl' : tier === 'gold' ? 'text-2xl md:text-3xl lg:text-4xl' : tier === 'silver' ? 'text-xl md:text-2xl lg:text-3xl' : 'text-xl md:text-2xl lg:text-3xl';
+    const textSize = tier === 'platinum' ? 'text-3xl md:text-4xl lg:text-5xl' : tier === 'gold' ? 'text-lg md:text-xl lg:text-2xl' : tier === 'silver' ? 'text-xl md:text-2xl lg:text-3xl' : 'text-xl md:text-2xl lg:text-3xl';
     const outerGlow = tier === 'platinum' ? 'bg-cyan-400/15 blur-[64px]' : tier === 'gold' ? 'bg-yellow-300/10 blur-[56px]' : tier === 'silver' ? 'bg-gray-300/8 blur-[52px]' : 'bg-orange-200/8 blur-[48px]';
     const gradient = tier === 'platinum' 
       ? 'bg-[radial-gradient(700px_circle_at_20%_20%,rgba(34,211,238,0.28),transparent_42%),radial-gradient(700px_circle_at_80%_60%,rgba(34,211,238,0.22),transparent_42%)]'

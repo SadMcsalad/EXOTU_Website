@@ -357,63 +357,13 @@ Relevant Experience: ${formData.experience || 'Not provided'}
                 </form>
               </>
             ) : (
-              <>
-                <div className="text-center mb-8">
-                  <Users size={48} className="text-blue-400 mx-auto mb-4" />
-                  <h2 className="text-3xl font-bold text-white mb-4">Thank You for Your Interest</h2>
-                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                    Thank you for your interest in the Ontario Tech University Exoskeleton Design Team, unfortunately we aren't onboarding at the moment. Please leave us your Ontario Tech email and we will reach out when applications open. See you soon!
-                  </p>
-                </div>
-
-                <form onSubmit={handleWaitlistSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Ontario Tech Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={waitlistEmail}
-                      onChange={(e) => {
-                        setWaitlistEmail(e.target.value);
-                        setWaitlistEmailError('');
-                      }}
-                      className={`w-full px-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-500 focus:outline-none ${
-                        waitlistEmailError ? 'border-red-500 focus:border-red-500' : 'border-gray-700 focus:border-blue-500'
-                      }`}
-                      placeholder="your.name@ontariotechu.net"
-                      pattern="[a-zA-Z0-9._%+-]+@ontariotechu\.net"
-                    />
-                    {waitlistEmailError ? (
-                      <p className="text-sm text-red-400 mt-2">{waitlistEmailError}</p>
-                    ) : (
-                      <p className="text-xs text-gray-500 mt-2">
-                        Must be an @ontariotechu.net email address
-                      </p>
-                    )}
-                  </div>
-
-                  {submitStatus.type && (
-                    <div className={`p-4 rounded-lg ${
-                      submitStatus.type === 'success' 
-                        ? 'bg-green-500/10 border border-green-500/30 text-green-400' 
-                        : 'bg-red-500/10 border border-red-500/30 text-red-400'
-                    }`}>
-                      {submitStatus.message}
-                    </div>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] flex items-center justify-center space-x-2"
-                  >
-                    <Mail size={20} />
-                    <span>{isSubmitting ? 'Submitting...' : 'Join Waitlist'}</span>
-                  </button>
-                </form>
-              </>
+              <div className="text-center">
+                <Users size={48} className="text-blue-400 mx-auto mb-4" />
+                <h2 className="text-3xl font-bold text-white mb-4">Thank You for Your Interest</h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Thank you for your interest in the Ontario Tech University Exoskeleton Design Team, unfortunately we aren't onboarding at the moment. See you soon!
+                </p>
+              </div>
             )}
           </div>
         </div>
