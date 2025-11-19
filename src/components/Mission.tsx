@@ -1,7 +1,6 @@
-import { missionStatement, missionTitle, missionValues } from '../data/mission';
+import { missionStatement, missionTitle, missionValues } from "../data/mission";
 
 export default function Mission() {
-
   return (
     <section className="py-24 px-4 bg-gradient-to-b from-black to-gray-900">
       <div className="max-w-7xl mx-auto">
@@ -26,8 +25,12 @@ export default function Mission() {
               <div className="w-12 h-12 bg-primary-vibrant/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-vibrant/20 transition-colors">
                 <value.icon size={24} className="text-primary-vibrant" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-white">{value.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{value.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">
+                {value.title}
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                {value.description}
+              </p>
             </div>
           ))}
         </div>
